@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Nguyễn Đức Hải - Nhóm 5- Thực hành bài 3</h1>
+    <div class="nhap_a">
+                   
+        <input id ="nhapa" type="text" placeholder="nhập đúng định dạng ví dụ: 4,6,4,7,8,6" style="margin-left: 9px; width: 300px;" />
+        <!-- <input id ="nhapb" type="text" placeholder="nhap b" style="margin-left: 9px;" /> -->
+      
+        <button onclick="nhap()">Tìm giá trị và tần số lớn nhất</button>
+        <p id="thongbao" >  </p>
+
+    </div>
+  
+    <script>  
+    //alert(Math.floor(4.6))
+     //alert(Number.isInteger(4))
+     let nhapa = document.getElementById('nhapa');
+     let tb = document.getElementById('thongbao');
+
+
+     function tanso_max(mm){
+////
+function dl_arr(arr_in){
+    let arr_resulf = [] ; 
+    let map_a = new Map();
+
+    dele_arr(arr_in);
+    function dele_arr(arr){
+    
+    if (arr.length > 1) {  
+        var check = 0;
+       
+        for(var i = 1 ; i < arr.length ; i++){
+           if (arr[0] == arr[i]){
+       
+            check = 1;
+           }
+        }
+  
+       if (check == 1){
+       if (map_a.has(arr[0]) == false){ map_a.set(arr[0],1) };
+       map_a.set(arr[0],map_a.get(arr[0]) + 1)
+       }
+       arr.splice(0, 1);
+    
+       dele_arr(arr);
+    
+    
+    }
+    
+    }
+
+    return map_a;
+    }
+
+
+////
+    map_tanso = dl_arr(mm);
+    let max_kq = -9999999999;
+    let arr_max = [];
+    map_tanso.forEach (function(value, key) {
+        if (value > max_kq){
+            max_kq =  value; 
+            arr_max[0] = key;
+        }
+     
+      })
+      map_tanso.forEach (function(value, key) {
+        if(max_kq == value && arr_max[0] != key ){
+            arr_max.push(key);
+
+        } 
+      });
+    ketqua = {};
+    ketqua.value = arr_max; 
+  
+    if (arr_max.length > 1){
+     console.log("có nhiều giá trị cùng đạt số lần xuất hiện lớn nhất")  ;
+     
+    }
+    ketqua.count = max_kq;
+    
+    arr_max.forEach (function(item, index) {
+      console.log("Value: " +String(item) + " , " + "count: " +String(max_kq))
+    });
+
+    return ketqua;
+    }
+
+
+
+/*
+Nhập vào một mảng : const mm = [3,2,5,6,7,7];
+xuất giá xuất hiện nhiều lần nhất và giá trị : const mkq = tanso_max(mm);
+
+*/
+
+
+
+function nhap(){
+let so_a = nhapa.value; // người dùng nhập vào định dạng chuỗi ví dụ: "4,5,6,7,8,6,5,5"
+
+let tach_m = so_a.split(",") ;// tách chuỗi thành các phần tử cách nhau dấu phẩy và gán thành mảng
+const mm_kq = tanso_max(tach_m); // xuất giá trị và số lần xuất hiện lớn nhất. có thể sẽ có nhiều giá trị cùng xuất hiện lớn nhất như nhau.chúng gộp lại thành mảng
+
+tb.innerHTML = "Kết quả xuất giá trị có số lần xuất hiện lớn nhất là: " + JSON.stringify(mm_kq);
+
+}
+
+
+ 
+
+
+    
+    </script>
+
+
+
+  
+</body>
+</html>

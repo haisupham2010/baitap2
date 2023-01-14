@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Nguyễn Đức Hải - Nhóm 5- Thực hành bài 2</h1>
+    <div class="nhap_a">
+                   
+        <input id ="nhapa" type="text" placeholder="nhập đúng định dạng ví dụ: 4,6,4,7,8,6" style="margin-left: 9px; width: 300px;" />
+        <!-- <input id ="nhapb" type="text" placeholder="nhap b" style="margin-left: 9px;" /> -->
+      
+        <button onclick="nhap()">Xóa phần tử trùng lặp</button>
+        <p id="thongbao" >  </p>
+
+    </div>
+  
+    <script>  
+    //alert(Math.floor(4.6))
+     //alert(Number.isInteger(4))
+     let nhapa = document.getElementById('nhapa');
+     let tb = document.getElementById('thongbao');
+
+     function dl_arr(arr_in){
+let arr_resulf = [] ; 
+dele_arr(arr_in);
+function dele_arr(arr){
+
+if (arr.length == 1) {
+
+arr_resulf.push(arr[0]);
+}
+if (arr.length > 1) {  
+    var check = 0;
+   
+    for(var i = 1 ; i < arr.length ; i++){
+       if (arr[0] == arr[i]){
+        check = 1;
+       }
+    }
+   if (check == 0){
+    arr_resulf.push(arr[0]);
+   }
+   arr.splice(0, 1);
+
+   dele_arr(arr);
+
+
+}
+
+}
+return arr_resulf ;
+}
+/*
+const mm = [1,2,1,4,2,5]; // đây là mảng input vào
+const mm_kq = dl_arr(mm);  // đây là mảng output
+*/
+
+function nhap(){
+let so_a = nhapa.value; // người dùng nhập vào định dạng chuỗi ví dụ: "4,5,6,7,8,6,5,5"
+
+let tach_m = so_a.split(",") ;// tách chuỗi thành các phần tử cách nhau dấu phẩy và gán thành mảng
+const mm_kq = dl_arr(tach_m); // xóa các phần tử trùng lặp của mảng 
+
+tb.innerHTML = "Chuỗi kết quả sau khi lọc bỏ các giá trị trùng là: " + JSON.stringify(mm_kq);
+
+}
+
+
+ 
+
+
+
+
+
+
+    
+    </script>
+
+
+
+  
+</body>
+</html>

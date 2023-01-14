@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <h1>Nguyễn Đức Hải - Nhóm 5- Thực hành bài 1</h1>
+    <div class="nhap_a">
+                   
+        <input id ="nhapa" type="text" placeholder="nhập chuỗi" style="margin-left: 9px;" />
+        <!-- <input id ="nhapb" type="text" placeholder="nhap b" style="margin-left: 9px;" /> -->
+      
+        <button onclick="nhap()">Đảo chuỗi</button>
+        <p id="thongbao" >  </p>
+
+    </div>
+  
+    <script>  
+    //alert(Math.floor(4.6))
+     //alert(Number.isInteger(4))
+     let nhapa = document.getElementById('nhapa');
+     let tb = document.getElementById('thongbao');
+
+    
+   
+function reverse_arr(arr){
+let len = arr.length;
+let fr =[];
+for(let i = 0; i < len; i++){
+    fr[i] = arr[len- 1 -i]
+}
+return fr;
+}
+
+
+function reverse_string(str){
+arr = [...str] ;   
+arr = reverse_arr(arr);
+return arr.reduce((value, item) => value + item , "") ;
+}
+
+
+function nhap(){
+var so_a = nhapa.value;
+ 
+tb.innerHTML = "Chuỗi kết quả sau khi đảo là: " +  reverse_string(so_a); 
+
+}
+
+
+
+    
+    </script>
+
+
+
+  
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      .khung{
+        margin-left: 9px;
+        width: 300px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 20px;
+      }
+      .them{
+        height: 40px;
+        width: 150px;
+        background-color: blue;
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        font-size: 20px;
+      }
+      .ttim{
+        height: 40px;
+        width: 100px;
+        background-color: blue;
+        color: rgb(255, 255, 255);
+        border-radius: 5px;
+        font-size: 20px;
+
+      }
+    .tim{
+
+        margin-left: 9px;
+        width: 515px;
+        height: 30px;
+        border-radius: 5px;
+        font-size: 20px;
+
+
+    }
+
+    .nhap_b{
+    margin-top: 40px;
+
+
+    }
+    .thongb{
+
+        margin-left: 9px;
+
+    }
+   .hang_data{
+   position: relative;
+   margin-left: 9px;
+   background-color: rgb(164, 164, 164);
+   height: 80px;
+   width: 750px;
+   border-radius: 15px;
+   margin-top: 30px;
+   color: black;
+   font-size: 60px;
+
+
+   }
+   .aa1{
+
+   margin-left: 9px;
+   background-color: rgb(164, 164, 164);
+   height: 80px;
+   width: 680px;
+   border-radius: 15px;
+  
+   color: black;
+   font-size: 60px;
+   padding-left: 30px;
+   position: absolute;
+   position: relative;
+   }
+
+.ten_x{
+  position: absolute;
+  text-align: left;
+  top: -55px;
+}
+
+
+.aa2{
+ margin-left: 9px;
+ background-color: rgb(164, 164, 164,0);
+ height: 80px;
+ width: 680px;
+ border-radius: 15px;
+ top: -135px;
+ color: black;
+ font-size: 60px;
+ padding-left: 30px;
+ position: absolute;
+ position: relative;
+
+ }
+
+
+  .sdt_x{
+    
+    text-align: right;
+    
+  } 
+
+
+
+    </style>
+
+
+</head>
+<body>
+   <h1>Nguyễn Đức Hải - Nhóm 5- Thực hành bài 4</h1>
+   <div class="nhap_a">
+                   
+    <input id ="tennhap" class="ten khung" type="text" placeholder="Tên"/>
+    <input id ="sdtnhap" class="sodienthoai khung" type="text" placeholder="Điện Thoại"/> 
+    <button class="them" onclick="them()">Thêm</button>
+</div>
+<p id="thongbao" class = "thongb"> </p>
+<p>_____________________________________________________________________________________________________</p>
+
+<div class="nhap_b">
+               
+    <input id ="timnhap" class="tim" type="text" placeholder="Tìm"/>
+    <button class="ttim" onclick="">TÌM</button>
+    <button class="xoatrung them" onclick="">XÓA TRÙNG</button>
+</div>
+
+
+<div class="hang_data">
+    <div class="aa1">
+        <p class="ten_x">Hải</p>
+        </div>
+        <div class="aa2">
+        <p class="sdt_x">0933333325</p>
+        </div>
+</div>
+
+
+
+    
+
+    <script>  
+        //alert(Math.floor(4.6))
+         //alert(Number.isInteger(4))
+         let tb = document.getElementById('thongbao');
+         let nhapten = document.getElementById('tennhap');
+         //nhapten.value
+         let nhapsdt = document.getElementById('sdtnhap');
+         let nhaptim = document.getElementById('timnhap');
+
+      
+    let map_ds = new Map();
+    function them(){
+    let ten = nhapten.value;
+    let sdt = nhapsdt.value;
+    if (ten != "" && sdt != ""){
+     if (map_ds.has(ten) == true){
+
+      tb.innerHTML = "Đã tồn tại tên trong bộ nhớ";
+     }
+    else{
+      map_ds.set(ten,sdt);
+
+    }
+
+   
+    
+    
+    }
+    else{
+
+    // alert(map_ds.get(ten))
+    tb.innerHTML = "Thông tin nhập vào không được để trống";
+    }
+
+   // tb.innerHTML = "Kết quả xuất giá trị có số lần xuất hiện lớn nhất là: " + JSON.stringify(mm_kq);
+    
+    }
+    
+    
+     
+    
+    
+        
+        </script>
+
+
+
+  
+</body>
+</html>

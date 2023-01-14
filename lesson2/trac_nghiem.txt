@@ -1,0 +1,13 @@
+Câu 1:  Sai
+Câu 2:  Đúng
+Câu 3:  Đúng
+Câu 4:  {foo: 1, bar: 2}
+Câu 5:  SyntaxError
+Câu 6:  undefined
+Câu 7:  Error
+Câu 8:  [1, 23, 4]
+Câu 9:  3
+Câu 10: a = 3, b = 12
+Câu 11: Error
+Câu 12: [1, 2, 3, 4, 5]
+Câu 13: 16
